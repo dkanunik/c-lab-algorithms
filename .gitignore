@@ -1,0 +1,7 @@
+**/.vscode
+**/bin
+**/build
+**/.env
+**/.idea/
+**/cmake-build-debug
+**/cmake-build-debug-coverage
