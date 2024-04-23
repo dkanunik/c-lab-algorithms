@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <unity.h>
-#include "data_utils.h"
+#include "test_data_utils.h"
 #include "bubbleSort.h"
 
 char TEST_DATA_FILE[] = "test1.txt";
