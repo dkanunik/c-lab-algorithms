@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <unity.h>
+#include <unity/unity.h>
 #include "test_data_utils.h"
 #include "bubbleSort.h"
 
