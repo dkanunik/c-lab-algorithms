@@ -2,22 +2,32 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-float xDeviation = 0.0;
+double downX = 0;
+double downY = 0;
+double diffX = 0;
+double diffY = 0;
 
-void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods) {
-    double mouseX = 0.0;
-    double mouseY = 0.0;
-    double releaseX = 0.0;
-    double releaseY = 0.0;
+void cursorPosCallback(GLFWwindow *window, double xpos, double ypos) {
+    double currentX = 0;
+    double currentY = 0;
 
-    if (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_LEFT) {
-        glfwGetCursorPos(window, &mouseX, &mouseY);
-        std::cout << "Mouse down at (" << mouseX << ", " << mouseY << ")" << std::endl;
-    } else if (action == GLFW_RELEASE && button == GLFW_MOUSE_BUTTON_LEFT) {
-        glfwGetCursorPos(window, &releaseX, &releaseY);
-        xDeviation = static_cast<float>(releaseX - mouseX);
-        std::cout << "Mouse up at (" << releaseX << ", " << releaseY << ")" << std::endl;
-        std::cout << "Mouse moved by (" << releaseX - mouseX << ", " << releaseY - mouseY << ")" << std::endl;
+    int mouseButtonCondition = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT);
+    glfwGetCursorPos(window, &currentX, &currentY);
+    if (mouseButtonCondition == GLFW_PRESS) {
+        std::cout << "Mouse position: (" << currentX << ", " << currentY << ")" << std::endl;
+        if (downX == 0) {
+            downX = currentX;
+            downY = currentY;
+            std::cout << "INIT: (" << downX << ", " << downY << ")" << std::endl;
+        }
+    }
+
+    if (mouseButtonCondition == GLFW_RELEASE && (downX != 0 || downY != 0)) {
+        diffX = currentX - downX;
+        diffY = currentY - downY;
+        std::cout << "DIFF: (" << diffX << ", " << diffY << ")" << std::endl;
+        downX = 0;
+        downY = 0;
     }
 }
 
@@ -51,7 +61,7 @@ int main() {
     }
 
     glfwMakeContextCurrent(window);
-    glfwSetMouseButtonCallback(window, mouseButtonCallback);
+    glfwSetCursorPosCallback(window, cursorPosCallback);
 
     if (glewInit() != GLEW_OK) {
         std::cerr << "Failed to initialize GLEW" << std::endl;
