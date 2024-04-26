@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <unity/unity.h>
 #include "test_data_utils.h"
-#include "bubbleSort.h"
+#include "selectionSort.h"
 
 char TEST_DATA_FILE[] = "test1.txt";
 bool DEBUG = true;
@@ -16,7 +16,7 @@ void tearDown() {
     remove(TEST_DATA_FILE);
 }
 
-void testBubbleSort() {
+void testSelectionSort() {
     int *data = get_test_data(TEST_DATA_FILE);
 
     if (DEBUG) {
@@ -27,7 +27,7 @@ void testBubbleSort() {
         printf("\n");
     }
 
-    sortWithBubble(data, SIZE);
+    sortWithSelection(data, SIZE);
 
     if (DEBUG) {
         printf("\n AFTER SORT: ");
@@ -46,6 +46,6 @@ void testBubbleSort() {
 
 int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(testBubbleSort);
+    RUN_TEST(testSelectionSort);
     return UNITY_END();
 }
