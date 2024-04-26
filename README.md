@@ -6,6 +6,7 @@ This is a laboratory project to learn algorithms
 
 ### List of considered algorithms:
 - Bubble Sort 
+- Selection Sort 
 
 ### Unit Tests
 
