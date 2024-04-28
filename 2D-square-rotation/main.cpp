@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <cmath>
 #include "include/Shapes.h"
 
 double downX = 0;
@@ -8,11 +9,41 @@ double downY = 0;
 double diffX = 0;
 double diffY = 0;
 
+unsigned short int gainDivider = 500;
+
 Shapes square;
 
-void calculateLocation() {
-    square.top_right.x = static_cast<float>(diffX / 100);
-    square.top_right.y = static_cast<float>(diffY / 100);
+Point calculatePointLocation(Point point, double angleInRad) {
+    Point result;
+    result.x = static_cast<float>(point.x * cos(angleInRad) - point.y * sin(angleInRad));
+    result.y = static_cast<float>(point.x * sin(angleInRad) + point.y * cos(angleInRad));
+    return result;
+}
+
+double calculateAngleForRotation(double degrees) {
+    return degrees * M_PI / HALF_OF_CIRCLE;
+}
+
+
+double calculateGainOfMoving() {
+    return diffX / gainDivider;
+}
+
+void calculateSquareLocation() {
+    double gain = calculateGainOfMoving();
+    double angleInRad = calculateAngleForRotation(gain);
+
+    Point result = calculatePointLocation(square.top_left, angleInRad);
+    square.top_left = result;
+
+    result = calculatePointLocation(square.top_right, angleInRad);
+    square.top_right = result;
+
+    result = calculatePointLocation(square.bottom_right, angleInRad);
+    square.bottom_right = result;
+
+    result = calculatePointLocation(square.bottom_left, angleInRad);
+    square.bottom_left = result;
 }
 
 void cursorPosCallback(GLFWwindow *window, double xpos, double ypos) {
@@ -32,7 +63,7 @@ void cursorPosCallback(GLFWwindow *window, double xpos, double ypos) {
         diffX = currentX - downX;
         diffY = downY - currentY;
         std::cout << "DIFF: (" << diffX << ", " << diffY << ")" << std::endl;
-        calculateLocation();
+        calculateSquareLocation();
     }
 
     if (mouseButtonCondition == GLFW_RELEASE) {
@@ -75,7 +106,7 @@ int main() {
         return -1;
     }
 
-    GLFWwindow *window = glfwCreateWindow(600, 600, "OpenGL Line", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(WINDOW_W, WINDOW_H, "OpenGL Line", nullptr, nullptr);
     if (!window) {
         std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();

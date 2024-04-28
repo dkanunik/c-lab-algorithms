@@ -1,6 +1,10 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 
+constexpr unsigned short int WINDOW_W = 600;
+constexpr unsigned short int WINDOW_H = 600;
+constexpr unsigned short int HALF_OF_CIRCLE = 180;
+
 using Point = struct Point {
     GLfloat x;
     GLfloat y;
