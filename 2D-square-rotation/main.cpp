@@ -24,7 +24,6 @@ double calculateAngleForRotation(double degrees) {
     return degrees * M_PI / HALF_OF_CIRCLE;
 }
 
-
 double calculateGainOfMoving() {
     return diffX / gainDivider;
 }
@@ -33,17 +32,10 @@ void calculateSquareLocation() {
     double gain = calculateGainOfMoving();
     double angleInRad = calculateAngleForRotation(gain);
 
-    Point result = calculatePointLocation(square.top_left, angleInRad);
-    square.top_left = result;
-
-    result = calculatePointLocation(square.top_right, angleInRad);
-    square.top_right = result;
-
-    result = calculatePointLocation(square.bottom_right, angleInRad);
-    square.bottom_right = result;
-
-    result = calculatePointLocation(square.bottom_left, angleInRad);
-    square.bottom_left = result;
+    square.top_left = calculatePointLocation(square.top_left, angleInRad);
+    square.top_right = calculatePointLocation(square.top_right, angleInRad);
+    square.bottom_right = calculatePointLocation(square.bottom_right, angleInRad);
+    square.bottom_left = calculatePointLocation(square.bottom_left, angleInRad);
 }
 
 void cursorPosCallback(GLFWwindow *window, double xpos, double ypos) {
