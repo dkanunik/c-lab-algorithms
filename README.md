@@ -5,8 +5,10 @@
 This is a laboratory project to learn algorithms
 
 ### List of considered algorithms:
+#### Comparison Sorting:
 - Bubble Sort 
-- Selection Sort 
+- Selection Sort
+- Insertion Sort
 
 ### Unit Tests
 
