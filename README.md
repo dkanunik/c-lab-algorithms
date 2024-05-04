@@ -9,6 +9,7 @@ This is a laboratory project to learn algorithms
 - Bubble Sort 
 - Selection Sort
 - Insertion Sort
+- Shell Sort
 
 ### Unit Tests
 

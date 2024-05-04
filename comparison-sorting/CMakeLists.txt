@@ -11,6 +11,7 @@ set(SOURCE_FILES
         selectionSort.c
         insertionSort.c
         bubbleSort.c
+        shellSort.c
         testSelectionSort.c
 )
 

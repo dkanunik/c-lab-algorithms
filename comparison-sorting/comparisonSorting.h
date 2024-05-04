@@ -12,5 +12,6 @@
 void sortWithSelection(int arr[], int size);
 void sortWithInsertion(int arr[], int size);
 void sortWithBubble(int arr[], int size);
+void sortWithShell(int arr[], int size);
 
 #endif //SELECTION_SORT_H
