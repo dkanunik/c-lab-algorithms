@@ -12,6 +12,7 @@ set(SOURCE_FILES
         insertionSort.c
         bubbleSort.c
         shellSort.c
+        mergeSort.c
         testSelectionSort.c
 )
 

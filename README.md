@@ -10,6 +10,7 @@ This is a laboratory project to learn algorithms
 - Selection Sort
 - Insertion Sort
 - Shell Sort
+- Merge Sort
 
 ### Unit Tests
 

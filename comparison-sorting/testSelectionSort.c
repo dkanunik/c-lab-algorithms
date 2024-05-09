@@ -60,11 +60,21 @@ void testShellSort() {
     }
 }
 
+void testMergeSort() {
+    sortWithMerge(testData, 0, MAX_DATA_SIZE - 1);
+    for (int i = 0; testData[i] != LAST_NUMBER; i++) {
+        if (testData[i + 1] != LAST_NUMBER) {
+            TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
+        }
+    }
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(testBubbleSort);
     RUN_TEST(testSelectionSort);
     RUN_TEST(testInsertionSort);
     RUN_TEST(testShellSort);
+    RUN_TEST(testMergeSort);
     return UNITY_END();
 }
