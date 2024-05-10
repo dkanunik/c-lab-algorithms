@@ -45,12 +45,12 @@ void merge(int arr[], int leftElementIndex, int midElementIndex, int rightElemen
     }
 }
 
-void sortWithMerge(int arrToSort[], int leftElementIndex, int rightElementIndex) {
+void sortMerge(int arrToSort[], int leftElementIndex, int rightElementIndex) {
     if (leftElementIndex < rightElementIndex) {
         int midElementIndex = leftElementIndex + (rightElementIndex - leftElementIndex) / 2;
 
-        sortWithMerge(arrToSort, leftElementIndex, midElementIndex);
-        sortWithMerge(arrToSort, midElementIndex + 1, rightElementIndex);
+        sortMerge(arrToSort, leftElementIndex, midElementIndex);
+        sortMerge(arrToSort, midElementIndex + 1, rightElementIndex);
 
         merge(arrToSort, leftElementIndex, midElementIndex, rightElementIndex);
     }

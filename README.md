@@ -11,6 +11,7 @@ This is a laboratory project to learn algorithms
 - Insertion Sort
 - Shell Sort
 - Merge Sort
+- Quick Sort
 
 ### Unit Tests
 

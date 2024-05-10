@@ -1,4 +1,4 @@
-void sortWithShell(int arr[], int size) {
+void sortShell(int arr[], int size) {
     for (int gap = size / 2; gap > 0; gap /= 2) {
         for (int i = gap; i < size; i++) {
             int temp = arr[i];

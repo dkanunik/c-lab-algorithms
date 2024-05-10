@@ -25,7 +25,7 @@ void tearDown() {
 
 void testBubbleSort() {
 
-    sortWithBubble(testData, MAX_DATA_SIZE);
+    sortBubble(testData, MAX_DATA_SIZE);
     for (int i = 0; testData[i] != LAST_NUMBER; i++) {
         if (testData[i + 1] != LAST_NUMBER) {
             TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
@@ -34,7 +34,7 @@ void testBubbleSort() {
 }
 
 void testSelectionSort() {
-    sortWithSelection(testData, MAX_DATA_SIZE);
+    sortSelection(testData, MAX_DATA_SIZE);
     for (int i = 0; testData[i] != LAST_NUMBER; i++) {
         if (testData[i + 1] != LAST_NUMBER) {
             TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
@@ -43,7 +43,7 @@ void testSelectionSort() {
 }
 
 void testInsertionSort() {
-    sortWithInsertion(testData, MAX_DATA_SIZE);
+    sortInsertion(testData, MAX_DATA_SIZE);
     for (int i = 0; testData[i] != LAST_NUMBER; i++) {
         if (testData[i + 1] != LAST_NUMBER) {
             TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
@@ -52,7 +52,7 @@ void testInsertionSort() {
 }
 
 void testShellSort() {
-    sortWithShell(testData, MAX_DATA_SIZE);
+    sortShell(testData, MAX_DATA_SIZE);
     for (int i = 0; testData[i] != LAST_NUMBER; i++) {
         if (testData[i + 1] != LAST_NUMBER) {
             TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
@@ -61,7 +61,16 @@ void testShellSort() {
 }
 
 void testMergeSort() {
-    sortWithMerge(testData, 0, MAX_DATA_SIZE - 1);
+    sortMerge(testData, 0, MAX_DATA_SIZE - 1);
+    for (int i = 0; testData[i] != LAST_NUMBER; i++) {
+        if (testData[i + 1] != LAST_NUMBER) {
+            TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
+        }
+    }
+}
+
+void testQuickSort() {
+    sortQuick(testData, 0, MAX_DATA_SIZE - 1);
     for (int i = 0; testData[i] != LAST_NUMBER; i++) {
         if (testData[i + 1] != LAST_NUMBER) {
             TEST_ASSERT_GREATER_OR_EQUAL(testData[i], testData[i + 1]);
@@ -76,5 +85,6 @@ int main(void) {
     RUN_TEST(testInsertionSort);
     RUN_TEST(testShellSort);
     RUN_TEST(testMergeSort);
+    RUN_TEST(testQuickSort);
     return UNITY_END();
 }

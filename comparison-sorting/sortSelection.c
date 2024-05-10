@@ -1,4 +1,4 @@
-void sortWithSelection(int arr[], int size) {
+void sortSelection(int arr[], int size) {
     int minValueIndex;
 
     for (int i = 0; i < size - 1; i++) {

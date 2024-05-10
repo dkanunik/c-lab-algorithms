@@ -8,11 +8,12 @@ set(unity_LIBRARY_DIR /usr/local/lib)
 set(test_data_utils_LIBRARY_DIR /usr/local/lib)
 
 set(SOURCE_FILES
-        selectionSort.c
-        insertionSort.c
-        bubbleSort.c
-        shellSort.c
-        mergeSort.c
+        sortSelection.c
+        sortInsertion.c
+        sortBubble.c
+        sortShell.c
+        sortMerge.c
+        sortQuick.c
         testSelectionSort.c
 )
 

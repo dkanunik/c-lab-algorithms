@@ -1,4 +1,4 @@
-void sortWithInsertion(int arr[], int size) {
+void sortInsertion(int arr[], int size) {
     int key;
     int j;
 

@@ -1,5 +1,5 @@
-#ifndef SELECTION_SORT_H
-#define SELECTION_SORT_H
+#ifndef COMPARISON_SORTING_H
+#define COMPARISON_SORTING_H
 
 #include <stdbool.h>
 
@@ -9,10 +9,11 @@
 
 #define DEBUG false
 
-void sortWithSelection(int arr[], int size);
-void sortWithInsertion(int arr[], int size);
-void sortWithBubble(int arr[], int size);
-void sortWithShell(int arr[], int size);
-void sortWithMerge(int arr[], int l, int r);
+void sortSelection(int arr[], int size);
+void sortInsertion(int arr[], int size);
+void sortBubble(int arr[], int size);
+void sortShell(int arr[], int size);
+void sortMerge(int arr[], int l, int r);
+void sortQuick(int arr[], int low, int high);
 
-#endif //SELECTION_SORT_H
+#endif //COMPARISON_SORTING_H
